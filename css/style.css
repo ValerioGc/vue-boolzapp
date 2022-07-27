@@ -12,10 +12,20 @@
     --b-standard: 2px solid var(--primary-color);
     --b-thin: 1px solid var(--primary-color);
 }
+/* Classi Comuni */
+.d-flex {
+    display: flex;
+}
+.d-flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 body {
     height: 100vh;
     position: relative;
 }
+/* Background  */
 #bg-bar {
     background-color: green;
     height: 15vh;
@@ -29,21 +39,65 @@ body {
 #container-app {
     width: 80%;
     height: 95%;
+    background-color: #fff;
     display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+
+#notification-alert-section {
+    height: 40px;
+}
+/******* Aside *******/
 aside {
     width: 35%;
     height: 100%;
+
+    display: flex;
+    flex-direction: column;
 }
-header,
-footer {
-    height: 8%;
-    width: 100%;
+#user {
+    height: 50px;
 }
+/* Search-bar*/
+#search-bar-container {
+    background-color: rgb(231, 231, 231);
+    border: var(--b-thin);
+    
+    display:flex ;
+    justify-content: center;
+    align-items: center;
+
+    height: 35px;
+}
+#search-bar {
+    background-color: var(--secondary-color);
+    height: 80%;
+    width: 96%;
+    display: flex;
+    align-items: center;
+}
+#search-bar input {
+    border: 0;
+}
+#search-bar i {
+    padding: 0 10px;
+}
+/* Sezione Contatti */
+#wrapper-contacts {
+    height: calc(100% - 128px);
+}
+#contacts {
+    height: 100%;
+    overflow-y: auto;
+    padding-top: 5px;
+}
+/* 
+    Sezione Chat 
+*/
 #message-app {
     height: 100%;
     width: 100%;
@@ -51,21 +105,16 @@ footer {
     flex-direction: column;
     justify-content: space-between;
 }
-
-/* Classi debug */
-.debug #container-app {
-    background-color: red;
-    border: var(--b-standard);
+.message-chat-container {
+    height: calc(100% - 100px);
+    overflow-y: auto;
 }
-.debug aside {
-    border: var(--b-thin);
-    background-color: lightslategray;
+.app-header {
+    height: 50px;
+    width: 100%;
+    position: sticky;
 }
-.debug header,
-.debug footer {
-    border: var(--b-thin);
-    background-color: aqua;
-}
-.debug #app {
-    background-color: #000;
+#message-app footer {
+    height: 50px;
+    width: 100%;
 }

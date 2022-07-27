@@ -1,0 +1,20 @@
+/* Classi debug */
+.debug #container-app {
+    background-color: red;
+    border: var(--b-standard);
+}
+.debug aside {
+    border: var(--b-thin);
+    background-color: lightslategray;
+}
+.debug header,
+.debug footer {
+    border: var(--b-thin);
+    background-color: aqua;
+}
+.debug #user {
+    border: var(--b-thin);
+}
+.debug #notification-alert-section {
+    background-color: #00ff88;
+}
