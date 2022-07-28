@@ -52,29 +52,20 @@
                         </div>
                     </div>
                 </header>
-
-
-
             <!-- Sezione contatti -->
                 <div id="wrapper-contacts">
                 <!-- contatti -->
                     <ul class="h-100">
                         <li v-for="(contact, index) in contacts" class="contact flex-al_c-between" 
-                        @click="moveActive(index)">
+                        @click="moveActive(index), viewMessage()">
                             <img :src=" 'resources/img/avatar' + contacts[index].avatar + '.jpg' " :alt="'Avatar' + ' ' + contacts[index].name">
                             <div class="contact-info">
                                 <h4>{{contacts[index].name}}</h4>
                                 <p>Ultimo messaggio: {{lastMessageTime}}</p>
-                                
-                                <!-- Ultimo messaggio -->
-                                <!-- <span v-for="(data, index) in contact.messages[index]">
-                                    {{data}}
-                                </span> -->
-
-                                <!-- Data messaggio -->
-                                <!-- <span v-for="(data, index) in contact.messages">
-                                    {{data.date}}
-                                </span> -->
+                                <!-- Ultimo messaggio ML5 -->
+                                <!--<p v-for="(data, index) in contact.messages[index]">
+                                        {{data}}
+                                    </p> -->
                             </div>
                             <div class="date">{{lastMessageTime}}</div>
                         </li>
@@ -88,12 +79,8 @@
                     <div>
                         <img :src=" 'resources/img/avatar_'  + (activeChatIndex + 1) + '.jpg' " :alt=" 'Avatar' + ' ' + contacts[activeChatIndex].name">
                         <div class="contact-info d-in-block">
-
                             <h4>{{contacts[activeChatIndex].name}}</h4>
-                            <p>Ultimo accesso oggi alle {{lastMessageTime}}</p>
-                        
-                        
-                        
+                            <p>Ultimo accesso oggi alle {{lastMessageTime}} {{lastMessageDate}}</p>
                         </div>
                     </div>
                     <div>
@@ -108,7 +95,7 @@
                     <ul v-for="item in contacts[activeChatIndex].messages" class="d-flex">
                         <li :class="(item.status == 'sent') ? 'sent':'received'" class="message">
                             <div>{{item.message}}</div>
-                            <span class="date">{{item.date}}</span>
+                            <span class="date">{{item.hour}}</span>
                         </li>
                     </ul> 
                 </main>
@@ -117,11 +104,12 @@
                     <i class="fa-regular fa-face-smile"></i>
                     <input id="textMessage" type="text" class="no-border" 
                     placeholder="Scrivi un messaggio" 
-                    v-model="txtInput" />
-                    
+                    v-model="txtInput" 
+                    @keypress.enter="pushMessage()" />
+                <!-- Bottone invio -->
                     <button id="send-message-btn" class="no-border"
                     :class=" (txtInput == '') ? 'd-none' : '' " 
-                    @click="">
+                    @click="pushMessage()">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                     <i class="fa-solid fa-microphone"></i>

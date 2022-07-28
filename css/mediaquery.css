@@ -6,7 +6,6 @@
     aside .contact-info h4 {
         line-height: 45px;
         padding: 0 5px;
-        font-size: 0.7rem;
     }
     .fa-magnifying-glass {
         display: none !important;
@@ -14,18 +13,14 @@
     #search-bar  {
         margin: auto;
     }
-    #notification-alert-section a {
-        font-size: 0.8rem;
-        padding: 0 5px;
-    }
     #notification-alert-section span {
         padding: 0;
     }
-    #notification-alert-section i {
-        transform: scale(0.8);
-    }
     #message-app-chat {
         padding: 10px 50px;
+    }
+    #app-header p {
+        font-size: 0.7rem;
     }
 }
 /* MQ Tablet > 768px */
@@ -33,7 +28,6 @@
     #app-header p {
         font-size: 0.8rem;
     }
-
     #user i,
     #notification-alert-section h5,
     #message-app header i {
@@ -54,12 +48,15 @@
     #message-app-chat {
         padding: 10px 30px;
     }
+    #app-header p {
+        display: none;
+    }
 }
 /* MQ Mobile > 578px */
 @media screen and (max-width: 578px) {
     /* Aside */
     #app-footer > * {
-        transform: scaleY(0.7);
+        transform: scaleY(0.8);
     }
     /* Aside */
     .contact {
@@ -69,22 +66,20 @@
         width: 35px;
         height: 35px;
     }
-    .date {
-        font-size: 0.4rem;
-    }
-    aside .contact-info h4 {
-        font-size: 0.6rem;
-    }
     /* Chat */
     #app-header img {
         vertical-align: middle;
     }
-    #message-app header i{
-        transform: scale(0.8);
-    }
-
-    #app-header p {
+    #message-app {
         display: none;
+    }
+    aside,
+    #message-app {
+        width: 100%;
+    }
+    aside .contact-info p {
+        display: block;
+        padding: 0 5px;
     }
 }
 /* MQ Mobile > 400px */
@@ -97,22 +92,7 @@
         display: inline-block;
         padding: 5px;
     }
-    .selected-contact {
-        background-color: var(--secondary-color);
-    }
     aside .contact-info h4 {
         font-size: 1rem;
-    }
-    .date {
-        font-size: 0.9rem;
-    }
-    aside .contact-info p {
-        display: block;
-        padding: 0 5px;
-    }
-    /* Chat */
-    #message-app {
-        display: none;
-        padding: 10px 80px;
     }
 }
