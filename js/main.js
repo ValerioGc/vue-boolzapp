@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
         txtInput: '',
         isAddClass: false,
+        isSent: '',
         contacts: [
             {
                 name: 'Michele',
@@ -168,7 +169,7 @@ var app = new Vue({
         ]
     }, 
     created() {
-        let firstContact = document.querySelector('li:first-child');
+        let firstContact = document.querySelector('aside li');
         firstContact.classList.add('selected-contact');
     },
     methods: {
@@ -186,9 +187,22 @@ var app = new Vue({
                 this.isAddClass = false;
             }
         },
+        // Funzione nascondi notifica
         hide() {
             document.getElementById('notification-alert-section').classList.add('d-none');
+        },
+        // Funzione Ricerca Stato messaggio
+        findStatus () {
+            for (let i = 0; i < this.contacts.length; i++) {
+                let msg = this.contacts[i].messages;
+                for (let x = 0; x < msg.length ; x++) {
+                    if (msg[x].status == 'send') {
+                        this.isSent = true;
+                    } else {
+                        this.isSent = false;
+                    }
+                }
+            }
         }
     }
-
 })

@@ -72,6 +72,9 @@ li {
     cursor: pointer;
     transition: all 0.2s linear;
 }
+li {
+    list-style: none;
+}
 img {
     width: 40px;
     border-radius: 50%;
@@ -172,6 +175,10 @@ aside p {
     flex-direction: column;
     justify-content: space-between;
 }
+#message-app-chat ul {
+    flex-direction: column;
+    justify-content: space-between;
+}
 #app-header,
 #message-app footer {
     height: 50px;
@@ -198,17 +205,18 @@ aside p {
 }
 /* Messaggi */
 .message {
-    max-width: 300px;
+    width: 55%;
     margin: 15px 0px;
-    padding: 15px 20px;
+    padding: 25px 20px;
     border-radius: 10px;
     position: relative;
+    display: inline-block;
 }
 .message .date {
     position: absolute;
     right: 3px;
     bottom: 3px;
-    margin: 10px;
+    margin: 1px 5px;
 }
 .text-message {
     margin-right: 40px;
@@ -216,7 +224,7 @@ aside p {
 .sent {
     align-self: flex-end;
 }
-.recived {
+.received {
     align-self: flex-start;
 }
 /* Footer chat */

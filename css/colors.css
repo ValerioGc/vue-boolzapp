@@ -55,7 +55,7 @@ aside {
 .sent {
     background-color: #d5f9ba;
 }
-.recived {
+.received {
     background-color: var(--secondary-color);
 }
 /* Footer chat */

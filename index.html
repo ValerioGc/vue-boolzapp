@@ -61,7 +61,7 @@
                             <img :src=" 'resources/img/avatar' + contacts[index].avatar + '.jpg' " :alt="'Avatar' + ' ' + contacts[index].name">
                             <div class="contact-info">
                                 <h4>{{contacts[index].name}}</h4>
-                                <p>Ultimo messaggio:</p>
+                                <p>{{date}}</p>
                             </div>
                             <div class="date">12:00</div>
                         </li>
@@ -87,29 +87,14 @@
                     </div>
                 </header>
             <!-- Container messaggi -->
-                <main id="message-app-chat" class="d-flex">
-<!-- 
-                    <div v-for="(message, index) in messages" 
-                    :class="messages[index].status"
-                    class="message sent">
-                        <span class="text-message">testtttt</span>
-                        <span class="date">12:00</span>
-                    </div>  -->
-
-                    <!-- <div class="message sent">
-                        <span class="text-message">Hai portato a spasso il cane?</span>
-                        <span class="date">12:00</span>
-                    </div>
-
-                    <div class="message sent">
-                        <span class="text-message">Ricordati di stendere i panni</span>
-                        <span class="date">12:00</span>
-                    </div>
-
-                    <div class="message recived">
-                        <span class="text-message">Tutto fatto!</span>
-                        <span class="date">12:00</span>
-                    </div> -->
+                <main id="message-app-chat">
+                    <ul v-for="item in contacts" class="d-flex">
+                        <li v-for="(message, index) in item.messages" 
+                        :class="item.messages[index].status" class="message">
+                            <div>{{item.messages[index].message}}</div>
+                            <span class="date">{{item.messages[index].date}}</span>
+                        </li>
+                    </ul>
 
                 </main>
             <!-- Footer chat -->
