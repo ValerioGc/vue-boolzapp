@@ -1,14 +1,19 @@
 var app = new Vue({
     el: '#container-app',
     data: {
-        txtInput: '',
-        isAddClass: false,
         isSent: '',
+        lastMessageTime: '12:00',
+    // Chat Attiva
+        activeChatIndex: 0,
+        activeChatIndexImg: this.activeChatIndex +  1,
+    // Nuovo Messaggio
+        newMessage:'',
+        txtInput: '',
         contacts: [
             {
                 name: 'Michele',
                 avatar: '_1',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -30,7 +35,7 @@ var app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '20/03/2020 16:30:00',
@@ -52,7 +57,7 @@ var app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '28/03/2020 10:10:40',
@@ -74,7 +79,7 @@ var app = new Vue({
             {
                 name: 'Alessandro B.',
                 avatar: '_4',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -91,7 +96,7 @@ var app = new Vue({
             {
                 name: 'Alessandro L.',
                 avatar: '_5',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -108,7 +113,7 @@ var app = new Vue({
             {
                 name: 'Claudia',
                 avatar: '_6',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -130,7 +135,7 @@ var app = new Vue({
             {
                 name: 'Federico',
                 avatar: '_7',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -147,7 +152,7 @@ var app = new Vue({
             {
                 name: 'Davide',
                 avatar: '_8',
-                visible: true,
+                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 15:30:55',
@@ -168,24 +173,18 @@ var app = new Vue({
             }
         ]
     }, 
-    created() {
-        let firstContact = document.querySelector('aside li');
-        firstContact.classList.add('selected-contact');
+    mounted() {
+        let listContact = document.querySelectorAll('li');
+        listContact[this.activeChatIndex].classList.add('selected-contact')
     },
     methods: {
-        addClass (index) {
-            console.log(`Indice contatto cliccato: ${index}`);
+        moveActive(index) {
             let listContact = document.querySelectorAll('li');
-            if (this.isAddClass == false) {
-                for (let i = 0; i < listContact.length; i++) {
-                    listContact[i].classList.remove('selected-contact');
-                }
-                listContact[index].classList.add('selected-contact');
-                this.isAddClass = true;
-            } else {
-                listContact[index].classList.remove('selected-contact');
-                this.isAddClass = false;
-            }
+            listContact[this.activeChatIndex].classList.remove('selected-contact');
+            this.activeChatIndex = index;
+            listContact[this.activeChatIndex].classList.add('selected-contact');
+            // this.isAddClass = true;
+            console.log(`Il contatto attivo è: ${this.activeChatIndex}`)
         },
         // Funzione nascondi notifica
         hide() {
@@ -203,6 +202,8 @@ var app = new Vue({
                     }
                 }
             }
-        }
+        },
+        // Funzione Aggiunta messaggio ad array
+        // pushMessage{}
     }
 })

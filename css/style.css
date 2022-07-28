@@ -150,7 +150,7 @@ aside p {
     border: 0;
 }
 #search-bar i {
-    padding: 3px 20px;
+    padding: 2.6px 20px;
 }
 /* Sezione Contatti */
 #wrapper-contacts {
@@ -198,7 +198,7 @@ aside p {
 /* Sezione Chat */
 #message-app-chat {
     height: calc(100% - 100px);
-    padding: 10px 80px;
+    padding: 10px 60px;
     background-image: url('../resources/img/mine.jpg');
     flex-direction: column;
     overflow-y: auto;
