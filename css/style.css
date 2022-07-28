@@ -8,29 +8,32 @@
     font-family: 'Segoe UI Regular';
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Regular'), url('../resources/Segoe UI.woff') format('woff');
+    src: local('Segoe UI Regular'), url('../resources/font/Segoe UI.woff') format('woff');
 }
 @font-face {
     font-family: 'Segoe UI Italic';
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Italic'), url('../resources/Segoe UI Italic.woff') format('woff');
+    src: local('Segoe UI Italic'), url('../resources/font/Segoe UI Italic.woff') format('woff');
 }
 @font-face {
     font-family: 'Segoe UI Bold';
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Bold'), url('../resources/Segoe UI Bold.woff') format('woff');
+    src: local('Segoe UI Bold'), url('../resources/font/Segoe UI Bold.woff') format('woff');
 }
 @font-face {
     font-family: 'Segoe UI Bold Italic';
     font-style: normal;
     font-weight: normal;
-    src: local('Segoe UI Bold Italic'), url('../resources/UI Bold Italic.woff') format('woff');
+    src: local('Segoe UI Bold Italic'), url('../resources/font/UI Bold Italic.woff') format('woff');
 }
 /* Classi Comuni */
 .d-flex {
     display: flex;
+}
+.d-none {
+    display: none;
 }
 .align-center {
     align-items: center;
@@ -67,6 +70,7 @@ body {
 i,
 li {
     cursor: pointer;
+    transition: all 0.2s linear;
 }
 img {
     width: 40px;
@@ -111,6 +115,9 @@ aside p {
 }
 #notification-alert-section span {
     padding: 0 15px;
+}
+#notification-alert-section a {
+    transition: all 0.3s linear;
 }
 /* Sezione utente */
 #user {
@@ -225,5 +232,6 @@ aside p {
 #send-message-btn {
     width: 30px;
     height: 30px;
-    box-shadow: 0 0 5px -2px var(--primary-color);
+    box-shadow: 0 0 5px -1px var(--primary-color);
+    animation: enter-btn 1.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }

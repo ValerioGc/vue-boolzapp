@@ -54,70 +54,17 @@
             <!-- Sezione contatti -->
                 <div id="wrapper-contacts">
                     <ul class="h-100">
-                        <li class="contact selected-contact flex-al_c-between">
-                            <img src="resources/img/avatar_1.jpg" alt="Avatar Contatto">
+                    <!-- contatti -->
+                        <li v-for="(contact, index) in contacts" class="contact flex-al_c-between" 
+                        @click="addClass(index)">
+                            <img :src=" 'resources/img/avatar' + contacts[index].avatar + '.jpg' " :alt="'Avatar' + ' ' + contacts[index].name">
                             <div class="contact-info">
-                                <h4>Michele</h4>
-                                <p>Ultimo messaggio inviato</p>
+                                <h4>{{contacts[index].name}}</h4>
+                                <p>Ultimo messaggio:</p>
                             </div>
                             <div class="date">12:00</div>
                         </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_2.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Fabio</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_3.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Samuele</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_4.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Alessandro B.</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_5.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Alessandro L.</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_6.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Claudia</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_7.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Federico</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
-                        <li class="contact flex-al_c-between">
-                            <img src="resources/img/avatar_8.jpg" alt="Avatar Utente">
-                            <div class="contact-info">
-                                <h4>Davide</h4>
-                                <p>Ultimo messaggio inviato</p>
-                            </div>
-                            <div class="date">12:00</div>
-                        </li>
+                        
                     </ul>
                 </div>
             </aside>
@@ -140,8 +87,15 @@
                 </header>
             <!-- Container messaggi -->
                 <main id="message-app-chat" class="d-flex">
+<!-- 
+                    <div v-for="(message, index) in messages" 
+                    :class="messages[index].status"
+                    class="message sent">
+                        <span class="text-message">testtttt</span>
+                        <span class="date">12:00</span>
+                    </div>  -->
 
-                    <div class="message sent">
+                    <!-- <div class="message sent">
                         <span class="text-message">Hai portato a spasso il cane?</span>
                         <span class="date">12:00</span>
                     </div>
@@ -154,14 +108,19 @@
                     <div class="message recived">
                         <span class="text-message">Tutto fatto!</span>
                         <span class="date">12:00</span>
-                    </div>
+                    </div> -->
 
                 </main>
             <!-- Footer chat -->
                 <footer id="app-footer" class="d-flex align-center w-100">
                     <i class="fa-regular fa-face-smile"></i>
-                    <input class="no-border" type="text" id="textMessage" placeholder="Scrivi un messaggio">
-                    <button id="send-message-btn" class="no-border">
+                    <input id="textMessage" type="text" class="no-border" 
+                    placeholder="Scrivi un messaggio" 
+                    v-model="txtInput" />
+                    
+                    <button id="send-message-btn" class="no-border"
+                    :class=" (txtInput == '') ? 'd-none' : '' " 
+                    @click="">
                         <i class="fa-solid fa-paper-plane"></i>
                     </button>
                     <i class="fa-solid fa-microphone"></i>
@@ -171,7 +130,7 @@
         <!-- 
             Script 
         -->
-        <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-        <script type="text/script" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+        <script src="js/main.js"></script>
     </body>
 </html>

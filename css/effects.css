@@ -1,0 +1,37 @@
+/*  Animazioni ed effetti */
+#notification-alert-section a:hover {
+    color: var(--primary-color);
+}
+
+li:hover li h4,
+li:hover li img {
+    filter: brightness(70%) blur(5px);
+}
+
+#notification-alert-section a:active {
+    font-weight: bold;
+}
+
+i:not(.fa-paper-plane, #search-bar .fa-magnifying-glass):hover {
+    transform: translateY(-3px) scale(1.2);
+}
+
+i:not(.fa-paper-plane, .fa-magnifying-glass):active {
+    filter: brightness(50%);
+}
+
+#send-message-btn:active {
+    filter: brightness(80%);
+}
+
+@keyframes enter-btn {
+    0% {
+        transform: translateZ(-1400px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateZ(0);
+        opacity: 1;
+    }
+}

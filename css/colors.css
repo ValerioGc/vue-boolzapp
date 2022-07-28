@@ -41,15 +41,15 @@ aside {
     border-right: 1px solid var(--alt-secondary-color);
 }
 /* Search-bar*/
-.contact-info p,
-#notification-alert-section a {
-    color: #c1b9bb;
-}
 #notification-alert-section {
     background-color: #8edafc;
 }
 #notification-alert-section i {
     color: #8edafc;
+}
+.contact-info p,
+#notification-alert-section a {
+    color: #c1b9bb;
 }
 /* App Chat */
 .sent {
