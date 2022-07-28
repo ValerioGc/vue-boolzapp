@@ -53,7 +53,7 @@ aside {
 }
 /* App Chat */
 .sent {
-    background-color: #D5F9BA;
+    background-color: #d5f9ba;
 }
 .recived {
     background-color: var(--secondary-color);
