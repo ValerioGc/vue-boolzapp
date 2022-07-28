@@ -60,7 +60,7 @@
     /* Aside */
     .contact img,
     #app-footer > * {
-        transform: scale(0.7);
+        transform: scaleY(0.7);
     }
     /* Aside */
     .contact {
