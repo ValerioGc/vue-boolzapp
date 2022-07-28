@@ -1,0 +1,68 @@
+/* Colors */
+:root {
+    /* color: */
+    --primary-color: #000;
+    --secondary-color: #fff;
+    --alt-secondary-color: #eaeaea;
+    /* Icon colors */
+    --primary-icon-color: #b1b1b1;
+    --secondary-icon-color: #6b7376;
+}
+/* Background  */
+#bg-bar {
+    background-color: #009688;
+}
+#bg {
+    background-color: #dcdbd3;
+}
+/* Container App */
+#container-app,
+#search-bar i,
+#notification-alert-section i {
+    background-color: var(--secondary-color);
+}
+/* Comuni */
+#message-app header i,
+aside i {
+    color: var(--primary-icon-color);
+}
+header,
+footer,
+.selected-contact,
+#search-bar-container {
+    background-color: var(--alt-secondary-color);
+}
+.date,
+#message-app footer i {
+    color: var(--secondary-icon-color);
+}
+/******* Aside *******/
+aside {
+    border-right: 1px solid var(--alt-secondary-color);
+}
+/* Search-bar*/
+.contact-info p,
+#notification-alert-section a {
+    color: #c1b9bb;
+}
+#notification-alert-section {
+    background-color: #8edafc;
+}
+#notification-alert-section i {
+    color: #8edafc;
+}
+/* App Chat */
+.sent {
+    background-color: #D5F9BA;
+}
+.recived {
+    background-color: var(--secondary-color);
+}
+/* Footer chat */
+#send-message-btn {
+    background-color: #009688;
+    color: var(--alt-secondary-color);
+}
+.fa-paper-plane {
+    color: var(--secondary-color)!important;
+}

@@ -7,97 +7,164 @@
         <title>Bolzapp</title>
         <link rel="shortcut icon" href="resources/favicon.ico" type="image/x-icon">
         <!-- StyleSheet -->
-        <link rel="stylesheet" href="css/debug.css">
+        <!-- <link rel="stylesheet" href="css/debug.css"> -->
+        <link rel="stylesheet" href="css/colors.css">
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/mediaquery.css">
         <!-- Icone -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body class="debug">
-        <!-- Sfondo -->
-        <div id="bg-bar"></div>
+    <!-- Sfondo -->
+        <div id="bg-bar" class="w-100"></div>
         <div id="bg"></div>
-        <!-- Container app -->
-        <div id="container-app">
-            <aside class="aside-app">
+    <!-- Container app -->
+        <div id="container-app" class="d-flex">
+            <aside class="h-100 d-flex">
                 <header>
-                    <div id="user"></div>
-                    <div id="notification-alert-section"></div>
-                    <div id="search-bar-container">
-                        <div id="search-bar">
+                    <div id="user" class="flex-al_c-between">
+                        <div>
+                            <img src="resources/img/avatar_io.jpg" alt="User Avatar">
+                            <h4 class="d-in-block">Sofia</h4>
+                        </div>
+                        <div>
+                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-message"></i>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </div>
+                    </div>
+                <!-- Sezione Avviso notifica -->
+                    <div id="notification-alert-section" class="d-flex align-center">
+                        <span>
+                            <i class="fa-solid fa-bell-slash"></i>
+                        </span>
+                        <div class="d-in-block w-100">
+                            <h5>Ricevi notifiche di nuovi messaggi</h5>
+                            <a href="#">Attiva notifiche desktop</a>
+                        </div>
+                    </div>
+                <!-- Barra di ricerca -->
+                    <div id="search-bar-container" class="flex-center">
+                        <div id="search-bar" class="d-flex align-center">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <input type="text" name="search-bar" id="search-bar" placeholder="Cerca o inizia una nuova chat">
                         </div>
                     </div>
                 </header>
+            <!-- Sezione contatti -->
                 <div id="wrapper-contacts">
-                    <ul id="contacts">
-                        <li class="selected-contact">
-                            <img src="resources/img/avatar_1.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                    <ul class="h-100">
+                        <li class="contact selected-contact flex-al_c-between">
+                            <img src="resources/img/avatar_1.jpg" alt="Avatar Contatto">
+                            <div class="contact-info">
                                 <h4>Michele</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_2.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Fabio</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_3.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Samuele</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_4.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Alessandro B.</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_5.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Alessandro L.</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_6.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Claudia</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_7.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Federico</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
-                        <li>
+                        <li class="contact flex-al_c-between">
                             <img src="resources/img/avatar_8.jpg" alt="Avatar Utente">
-                            <div style="width: calc(93% - 40px)">
+                            <div class="contact-info">
                                 <h4>Davide</h4>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
+                            <div class="date">12:00</div>
                         </li>
                     </ul>
                 </div>
             </aside>
-            <div id="message-app">
-                <header class="app-header"></header>
-                <main class="message-chat-container d-flex">
+        <!-- Container messaggi chat -->
+            <div id="message-app" class="h-100 d-flex">
+            <!-- Header Chat -->
+                <header id="app-header" class="flex-al_c-between w-100">
+                    <div>
+                        <img src="resources/img/avatar_1.jpg" alt="Contact Avatar">
+                        <div class="contact-info d-in-block">
+                            <h4>Michele</h4>
+                            <p>Ultimo accesso oggi alle 12:00</p>
+                        </div>
+                    </div>
+                    <div>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </div>
+                </header>
+            <!-- Container messaggi -->
+                <main id="message-app-chat" class="d-flex">
+                    <div class="message sent">
+                        <span class="text-message">Hai portato a spasso il cane?</span>
+                        <span class="date">12:00</span>
+                    </div>
 
-                        <div class="recived"></div>
-                        <div class="sent"></div>
+                    <div class="message sent">
+                        <span class="text-message">Ricordati di stendere i panni</span>
+                        <span class="date">12:00</span>
+                    </div>
+
+                    <p class="message recived">
+                        <span class="text-message">Tutto fatto!</span>
+                        <span class="date">12:00</span>
+                    </p>
+
                 </main>
-                <footer class="app-footer"></footer>
+            <!-- Footer chat -->
+                <footer id="app-footer" class="d-flex align-center w-100">
+                    <i class="fa-regular fa-face-smile"></i>
+                    <input class="no-border" type="text" id="textMessage" placeholder="Scrivi un messaggio">
+                    <button id="send-message-btn" class="no-border">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                    <i class="fa-solid fa-microphone"></i>
+                </footer>
             </div>
         </div>
         <!-- 
