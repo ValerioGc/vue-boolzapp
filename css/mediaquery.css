@@ -58,7 +58,6 @@
 /* MQ Mobile > 578px */
 @media screen and (max-width: 578px) {
     /* Aside */
-    .contact img,
     #app-footer > * {
         transform: scaleY(0.7);
     }

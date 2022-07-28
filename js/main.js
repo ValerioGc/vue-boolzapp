@@ -166,19 +166,29 @@ var app = new Vue({
                 ],
             }
         ]
+    }, 
+    created() {
+        let firstContact = document.querySelector('li:first-child');
+        firstContact.classList.add('selected-contact');
     },
     methods: {
         addClass (index) {
             console.log(`Indice contatto cliccato: ${index}`);
             let listContact = document.querySelectorAll('li');
-
             if (this.isAddClass == false) {
-                listContact[index].classList.add('selected-contact')
+                for (let i = 0; i < listContact.length; i++) {
+                    listContact[i].classList.remove('selected-contact');
+                }
+                listContact[index].classList.add('selected-contact');
                 this.isAddClass = true;
             } else {
-                listContact[index].classList.remove('selected-contact')
+                listContact[index].classList.remove('selected-contact');
                 this.isAddClass = false;
             }
+        },
+        hide() {
+            document.getElementById('notification-alert-section').classList.add('d-none');
         }
     }
+
 })
