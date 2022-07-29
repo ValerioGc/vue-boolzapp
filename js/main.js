@@ -1,14 +1,16 @@
+var DateTime = luxon.DateTime;
+// App Vue
 var app = new Vue({
     el: '#container-app',
     data: {
         screenS: 'desktop',
         isSent: '',
     // Ora e Data
-        lastMessageDate: '29/07/22',
-        lastMessageTime: '12:00',
+        lastMessageDate: '',
+        lastMessageTime: '',
+        lastMessage: '',
     // Chat Attiva
         activeChatIndex: 0,
-        activeChatIndexImg: this.activeChatIndex +  1,
     // Nuovo Messaggio
         newMessage:'',
         txtInput: '',
@@ -215,6 +217,18 @@ var app = new Vue({
                 document.querySelector('aside').classList.remove('d-none');
             }
         },
+    // Funzione Filtraggio
+        filterContact (index) {
+            let listContact = document.querySelectorAll('li');
+            let input = document.querySelector('#app-footer input').value;
+            if (!contacts[index].names.includes(input)) {
+                listContact[index].classList.add('d-none')
+            }
+        }
+    },
+    //Funzione recupero ultimo messaggio inziale
+    getLastMessage() {
+
     },
     methods: {
         moveActive(index) {
@@ -224,11 +238,11 @@ var app = new Vue({
             listContact[this.activeChatIndex].classList.add('selected-contact');
             console.log(`Il contatto attivo è: ${this.activeChatIndex}`)
         },
-        // Funzione nascondi notifica
+    // Funzione nascondi notifica
         hide() {
             document.getElementById('notification-alert-section').classList.add('d-none');
         },
-        // Funzione Ricerca Stato messaggio
+    // Funzione Ricerca Stato messaggio
         findStatus () {
             for (let i = 0; i < this.contacts.length; i++) {
                 let msg = this.contacts[i].messages;
@@ -241,32 +255,45 @@ var app = new Vue({
                 }
             }
         },
-        // Funzione Aggiunta messaggio ad array
+    // Funzione Aggiunta messaggio ad array
         pushMessage () {
-            let msg = this.txtInput;
-            let newM =
-            {
-                date: '?',
-                hour: this.lastMessageTime,
-                message: msg,
-                status: 'sent'
+            if (this.txtInput.trim() !== '') {
+                this.getTimeActual();
+                let time = this.lastMessageTime;
+                let date = this.lastMessageDate;
+                let msg = this.txtInput.trim();
+                let newM =
+                {
+                    date: date,
+                    hour: time,
+                    message: msg,
+                    status: 'sent'
+                }
+                this.txtInput = '';
+                this.contacts[this.activeChatIndex].messages.push(newM);
+                // Funzione Aggiunta risposta ad array
+                setTimeout(() => {
+                    this.getTimeActual();
+                    time = this.lastMessageTime;
+                    date = this.lastMessageDate;
+                    let newR =
+                    {
+                        date: date,
+                        hour: time,
+                        message: 'Ok',
+                        status: 'received'
+                    }
+                    this.lastMessage = newR.message,
+                        this.contacts[this.activeChatIndex].messages.push(newR)
+                }, 2000)
             }
-            this.txtInput = '';
-            this.contacts[this.activeChatIndex].messages.push(newM);
-            setTimeout(this.pushMessageResp, 1500)
         },
-        // Funzione Aggiunta risposta ad array
-        pushMessageResp () {
-            let newR =
-            {
-                date: this.lastMessageDate,
-                hour: this.lastMessageTime,
-                message: 'Ok',
-                status: 'received'
-            }
-            this.contacts[this.activeChatIndex].messages.push(newR)
+        // Funzione Recupero ora e data attuale
+        getTimeActual() {
+            this.lastMessageTime = DateTime.now().toFormat('HH:mm:ss')
+            this.lastMessageDate = DateTime.now().toFormat('dd/LL/y')
         },
-        // Funzione di visualizzazione chat selezionata mobile
+    // Funzione di visualizzazione chat selezionata mobile
         viewMessage () {
             if (window.screen.width < 576) {
                 document.querySelector('aside').classList.add('d-none');

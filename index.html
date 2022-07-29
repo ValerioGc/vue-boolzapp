@@ -14,6 +14,8 @@
         <link rel="stylesheet" href="css/mediaquery.css">
         <!-- Icone -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Luxon -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.0.1/luxon.min.js" integrity="sha512-6ZJuab/UnRq1muTChgrVxJhSgygmL2GMLVmSJN7pcBEqJ1dWPbqN9CiZ6U3HrcApTIJsLnMgXYBYgtVkJ8fWiw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </head>
     <body class="debug">
     <!-- Sfondo -->
@@ -61,11 +63,7 @@
                             <img :src=" 'resources/img/avatar' + contacts[index].avatar + '.jpg' " :alt="'Avatar' + ' ' + contacts[index].name">
                             <div class="contact-info">
                                 <h4>{{contacts[index].name}}</h4>
-                                <p>Ultimo messaggio: {{lastMessageTime}}</p>
-                                <!-- Ultimo messaggio ML5 -->
-                                <!--<p v-for="(data, index) in contact.messages[index]">
-                                        {{data}}
-                                    </p> -->
+                                <p>Ultimo messaggio: {{lastMessage}}</p>
                             </div>
                             <div class="date">{{lastMessageTime}}</div>
                         </li>
@@ -80,7 +78,7 @@
                         <img :src=" 'resources/img/avatar_'  + (activeChatIndex + 1) + '.jpg' " :alt=" 'Avatar' + ' ' + contacts[activeChatIndex].name">
                         <div class="contact-info d-in-block">
                             <h4>{{contacts[activeChatIndex].name}}</h4>
-                            <p>Ultimo accesso oggi alle {{lastMessageTime}} {{lastMessageDate}}</p>
+                            <p>Ultimo accesso il {{lastMessageDate}} alle ore {{lastMessageTime}} </p>
                         </div>
                     </div>
                     <div>
