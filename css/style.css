@@ -36,7 +36,7 @@
     display: block!important;
 }
 .d-none {
-    display: none;
+    display: none!important;
 }
 .align-center {
     align-items: center;

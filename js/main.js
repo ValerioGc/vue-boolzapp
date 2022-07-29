@@ -23,7 +23,6 @@ var app = new Vue({
             {
                 name: 'Michele',
                 avatar: '_1',
-                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020',
@@ -48,7 +47,6 @@ var app = new Vue({
             {
                 name: 'Fabio',
                 avatar: '_2',
-                hidden: false,
                 messages: [
                     { 
                         date: '20/03/2020 ',
@@ -73,7 +71,6 @@ var app = new Vue({
             {
                 name: 'Samuele',
                 avatar: '_3',
-                hidden: false,
                 messages: [
                     {
                         date: '28/03/2020 ', 
@@ -98,7 +95,6 @@ var app = new Vue({
             {
                 name: 'Alessandro B.',
                 avatar: '_4',
-                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 ', 
@@ -117,7 +113,6 @@ var app = new Vue({
             {
                 name: 'Alessandro L.',
                 avatar: '_5',
-                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020 ', 
@@ -136,7 +131,6 @@ var app = new Vue({
             {
                 name: 'Claudia',
                 avatar: '_6',
-                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020', 
@@ -161,7 +155,6 @@ var app = new Vue({
             {
                 name: 'Federico',
                 avatar: '_7',
-                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020', 
@@ -180,7 +173,6 @@ var app = new Vue({
             {
                 name: 'Davide',
                 avatar: '_8',
-                hidden: false,
                 messages: [
                     {
                         date: '10/01/2020', 
@@ -207,7 +199,6 @@ var app = new Vue({
     mounted () {
         let listContact = document.querySelectorAll('li');
         listContact[this.activeChatIndex].classList.add('selected-contact') ;
-
     // calcolo tipo dispostivo
         let screenWidth = window.screen.width;
         let aside = document.querySelector('aside')
@@ -221,11 +212,30 @@ var app = new Vue({
             aside.classList.remove('d-none');
             document.getElementById('message-app').classList.remove('d-none');
         }
-
     },
     computed: {
     // Funzione Filtraggio
-
+        filterContact() {
+            let listContact = document.querySelectorAll('li');
+            let str = this.searchInput.trim();
+            if (str !== '') {
+                for (let i = 0; i < this.contacts.length; i++) {
+                    if (!this.contacts[i].name.includes(str)) {
+                        listContact[i].classList.add('d-none')
+                        console.log(`L'input di ricerca è ${str}`)
+                        console.log('contatto i =' + ' ' + listContact[i]);
+                        console.log(` La stringa ${str} NON è contenuta in ${this.contacts[i].name}`)
+                    } else {
+                        console.log(` La stringa ${str} è contenuta in ${this.contacts[i].name}`)
+                    }
+                }
+            } else if (str == '') {
+                for (let x = 0; x < this.contacts.length; x++) {
+                    listContact[x].classList.remove('d-none')
+                }
+            }
+            return str;
+        }
         /*
     //Funzione recupero ultimo messaggio default
         getLastMessageDefault() {},
@@ -299,20 +309,6 @@ var app = new Vue({
         getTimeActual() {
             this.lastMessageTime = DateTime.now().toFormat('HH:mm:ss')
             this.lastMessageDate = DateTime.now().toFormat('dd/LL/y')
-        },
-        filterContact() {
-            let listContact = document.querySelectorAll('li');
-            console.log(this.searchInput);
-            for (let i = 0; i < this.contacts.length; i++)
-                if (!this.contacts.includes(this.searchInput)) {
-                    listContact[i].classList.add('d-none')
-                    console.log(listContact);
-                    console.log(listContact[i]);
-                    console.log(listContact[i]);
-                    console.log(this.contacts[i]);
-                    console.log(this.contacts);
-                    console.log(this.searchInput);
-                }
         },
     // Funzione di visualizzazione chat selezionata mobile
         viewMessage () {
