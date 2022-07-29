@@ -28,9 +28,9 @@
     #app-header p {
         font-size: 0.8rem;
     }
+    #app-header p,
     #user i,
-    #notification-alert-section h5,
-    #message-app header i {
+    #notification-alert-section h5 {
         display: none;
     }
     /* Aside */
@@ -48,12 +48,10 @@
     #message-app-chat {
         padding: 10px 30px;
     }
-    #app-header p {
-        display: none;
-    }
 }
 /* MQ Mobile > 578px */
 @media screen and (max-width: 578px) {
+
     /* Aside */
     #app-footer > * {
         transform: scaleY(0.8);
@@ -66,27 +64,9 @@
         width: 35px;
         height: 35px;
     }
-    /* Chat */
-    #app-header img {
-        vertical-align: middle;
-    }
-    #message-app {
-        display: none;
-    }
-    aside,
-    #message-app {
-        width: 100%;
-    }
     aside .contact-info p {
         display: block;
         padding: 0 5px;
-    }
-}
-/* MQ Mobile > 400px */
-@media screen and (max-width: 419px) {
-    /* Aside */
-    aside {
-        width: 100%;
     }
     #user i {
         display: inline-block;
@@ -94,5 +74,19 @@
     }
     aside .contact-info h4 {
         font-size: 1rem;
+    }
+    aside,
+    #message-app {
+        width: 100%;
+    }
+    /* Chat */
+    #app-header img {
+        vertical-align: middle;
+    }
+    #message-app {
+        display: none;
+    }
+    #message-app header i {
+        display: inline-block;
     }
 }

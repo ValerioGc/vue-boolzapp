@@ -2,8 +2,11 @@ var DateTime = luxon.DateTime;
 // App Vue
 var app = new Vue({
     el: '#container-app',
-    data: {
-        screenS: 'desktop',
+    data: {    
+    // Controllo larghezza schermo
+        screenType: 'desktop',
+        // screenWidth: window.screen.width,
+    // Definizione mittente messaggio
         isSent: '',
     // Ora e Data
         lastMessageDate: '',
@@ -14,6 +17,7 @@ var app = new Vue({
     // Nuovo Messaggio
         newMessage:'',
         txtInput: '',
+        searchInput: '',
     // Contatti
         contacts: [
             {
@@ -200,35 +204,38 @@ var app = new Vue({
             }
         ]
     }, 
-    mounted() {
+    mounted () {
         let listContact = document.querySelectorAll('li');
-        listContact[this.activeChatIndex].classList.add('selected-contact') ;       
+        listContact[this.activeChatIndex].classList.add('selected-contact') ;
+
+    // calcolo tipo dispostivo
+        let screenWidth = window.screen.width;
+        let aside = document.querySelector('aside')
+        let chat = document.getElementById('message-app') 
+        if (screenWidth < 578) {
+            this.screenType = 'mobile';
+            aside.classList.remove('d-none');
+            chat.classList.add('d-none');
+        } else if (screenWidth > 578) {
+            this.screenType = 'desktop';
+            aside.classList.remove('d-none');
+            document.getElementById('message-app').classList.remove('d-none');
+        }
+
     },
     computed: {
-        cotrolScreenSize () {
-            if (window.screen.width < 419) {
-                this.screenS = 'mobile';
-            } else if (window.screen.width > 419) {
-                this.screenS = 'desktop';
-            } 
-        },
-        controlScreen() {
-            if (window.screen.width > 478) {
-                document.querySelector('aside').classList.remove('d-none');
-            }
-        },
     // Funzione Filtraggio
-        filterContact (index) {
-            let listContact = document.querySelectorAll('li');
-            let input = document.querySelector('#app-footer input').value;
-            if (!contacts[index].names.includes(input)) {
-                listContact[index].classList.add('d-none')
-            }
-        }
-    },
-    //Funzione recupero ultimo messaggio inziale
-    getLastMessage() {
 
+        /*
+    //Funzione recupero ultimo messaggio default
+        getLastMessageDefault() {},
+    //Funzione recupero data ultimo messaggio default
+        getLastMessageDefaultTime() {},
+    //Funzione recupero ultimo messaggio
+        getLastMessageInfo() {},
+    //Funzione recupero data ultimo messaggio
+        getLastMessageTime() {}
+        */
     },
     methods: {
         moveActive(index) {
@@ -271,7 +278,7 @@ var app = new Vue({
                 }
                 this.txtInput = '';
                 this.contacts[this.activeChatIndex].messages.push(newM);
-                // Funzione Aggiunta risposta ad array
+            // Funzione Aggiunta risposta ad array
                 setTimeout(() => {
                     this.getTimeActual();
                     time = this.lastMessageTime;
@@ -293,9 +300,23 @@ var app = new Vue({
             this.lastMessageTime = DateTime.now().toFormat('HH:mm:ss')
             this.lastMessageDate = DateTime.now().toFormat('dd/LL/y')
         },
+        filterContact() {
+            let listContact = document.querySelectorAll('li');
+            console.log(this.searchInput);
+            for (let i = 0; i < this.contacts.length; i++)
+                if (!this.contacts.includes(this.searchInput)) {
+                    listContact[i].classList.add('d-none')
+                    console.log(listContact);
+                    console.log(listContact[i]);
+                    console.log(listContact[i]);
+                    console.log(this.contacts[i]);
+                    console.log(this.contacts);
+                    console.log(this.searchInput);
+                }
+        },
     // Funzione di visualizzazione chat selezionata mobile
         viewMessage () {
-            if (window.screen.width < 576) {
+            if (this.screenType == 'mobile') {
                 document.querySelector('aside').classList.add('d-none');
                 document.querySelector('#message-app').classList.add('override-MQ')
             }

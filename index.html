@@ -50,7 +50,7 @@
                     <div id="search-bar-container" class="flex-center">
                         <div id="search-bar" class="d-flex align-center">
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input type="text" name="search-bar" id="search-bar" placeholder="Cerca o inizia una nuova chat">
+                            <input type="text" name="search-bar" id="search-bar" @keypress.enter="filterContact()" placeholder="Cerca o inizia una nuova chat" v-model="searchInput">
                         </div>
                     </div>
                 </header>
@@ -63,7 +63,7 @@
                             <img :src=" 'resources/img/avatar' + contacts[index].avatar + '.jpg' " :alt="'Avatar' + ' ' + contacts[index].name">
                             <div class="contact-info">
                                 <h4>{{contacts[index].name}}</h4>
-                                <p>Ultimo messaggio: {{lastMessage}}</p>
+                                <p>{{lastMessage}}</p>
                             </div>
                             <div class="date">{{lastMessageTime}}</div>
                         </li>
@@ -85,6 +85,8 @@
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
                         <i class="fa-solid fa-ellipsis-vertical"></i>
+                        <i v-if="screenType == 'mobile'" class="fa-regular fa-circle-left"></i>
+
                     </div>
                 </header>
             <!-- Container messaggi -->
