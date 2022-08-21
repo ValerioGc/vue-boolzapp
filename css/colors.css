@@ -4,9 +4,19 @@
     --primary-color: #000;
     --secondary-color: #fff;
     --alt-secondary-color: #eaeaea;
+    --alt-dark-color: #c4bfbfc1;
     /* Icon colors */
     --primary-icon-color: #b1b1b1;
     --secondary-icon-color: #6b7376;
+    --alt-icon-color: #9aa2a5;
+}
+/* Dark Theme */
+.dark-mode {
+    color: var(--secondary-color);
+    background-color: #1b1919!important;
+}
+.dark-mode-icon {
+    color: var(--alt-icon-color)!important;
 }
 /* Background  */
 #bg-bar {
@@ -28,18 +38,20 @@ aside i {
 }
 header,
 footer,
-.selected-contact,
 #search-bar-container {
     background-color: var(--alt-secondary-color);
+}
+.selected-contact {
+    background-color: var(--alt-secondary-color);
+}
+.selected-contact-alt {
+    background-color: var(--alt-dark-color);
 }
 .date,
 #message-app footer i {
     color: var(--secondary-icon-color);
 }
 /******* Aside *******/
-aside {
-    border-right: 1px solid var(--alt-secondary-color);
-}
 /* Search-bar*/
 #notification-alert-section {
     background-color: #8edafc;

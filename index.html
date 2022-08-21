@@ -31,7 +31,9 @@
                             <h4 class="d-in-block">Sofia</h4>
                         </div>
                         <div>
-                            <i class="fa-solid fa-circle-notch"></i>
+                            <i class="fa-solid fa-moon" @click="enableDarkMode"></i>
+                            <i class="fa-solid fa-circle-half-stroke d-none" @click="enableDarkMode"></i>
+                            <i class="fa-solid fa-circle-notch" @click="reload()"></i>
                             <i class="fa-solid fa-message"></i>
                             <i class="fa-solid fa-ellipsis-vertical"></i>
                         </div>
@@ -58,6 +60,7 @@
                 <div id="wrapper-contacts">
                 <!-- contatti -->
                     <ul class="h-100">
+                        <li v-if="noCnt == true" class="noCntAlert">Nessun Contatto Trovato</li>
                         <li v-for="(contact, index) in contacts" class="contact flex-al_c-between" 
                         @click="moveActive(index), viewMessage()">
                             <img :src=" 'resources/img/avatar' + contacts[index].avatar + '.jpg' " :alt="'Avatar' + ' ' + contacts[index].name">
@@ -71,7 +74,7 @@
                 </div>
             </aside>
         <!-- Container messaggi chat -->
-            <div id="message-app" class="h-100 d-flex">
+            <div id="message-app" class="h-100 d-flex" :class="screenType == 'mobile' ? 'd-none' : ''">
             <!-- Header Chat -->
                 <header id="app-header" class="flex-al_c-between w-100">
                     <div>
@@ -81,21 +84,48 @@
                             <p>Ultimo accesso il {{lastMessageDate}} alle ore {{lastMessageTime}} </p>
                         </div>
                     </div>
+                <!-- Icone pulsanti -->
                     <div>
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <i class="fa-solid fa-paperclip"></i>
-                        <i class="fa-solid fa-ellipsis-vertical"></i>
-                        <i v-if="screenType == 'mobile'" class="fa-regular fa-circle-left"></i>
-
+                    <!-- Pulsante indietro mobile-->
+                        <i v-if="screenType == 'mobile'" class="fa-regular fa-circle-left" @click="viewMessage()"></i>
+                    <!-- Popup -->    
+                        <i class="fa-solid fa-ellipsis-vertical" @click="ctrHiddenHD()"></i>
+                        <div v-if="isHiddenHD == false" class="popup-chat popup" @click="deleteChat(activeChatIndex)">
+                            <span class="popoup-chat-text">
+                                <i class="fa-solid fa-trash-can"></i>
+                                <span>Elimina Messaggi (Svuota Chat)</span>
+                            </span>
+                        </div>
                     </div>
                 </header>
             <!-- Container messaggi -->
                 <main id="message-app-chat">
-                <!-- container messaggi-->
+                <!-- Messaggio criptaggio chat-->
+                    <div class="crypt-Message">
+                        <span class="crypt-Message-text">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>I messaggi che invii in questa chat e le chiamate sono ora protetti con la crittografia end-to-end.</span>
+                            <p><a href="#">Tocca per maggiori informazioni.</a></p>
+                        </span>
+                    </div>
+                <!-- Placeholder Chat Vuota -->
+                    <span class="placeholderChatEmpty" v-if="chatEmpty">Chat Vuota</span>
+                <!-- Messaggi chat-->
                     <ul v-for="item in contacts[activeChatIndex].messages" class="d-flex">
-                        <li :class="(item.status == 'sent') ? 'sent':'received'" class="message">
+                        <li :class="(item.status == 'sent') ? 'sent':'received'" class="message"  @click="ctrHidM()">
                             <div>{{item.message}}</div>
                             <span class="date">{{item.hour}}</span>
+
+                        <!-- Popup -->    
+                            <div class="popup-message popup" :class="{'d-none': isHidden}" @click="deleteMsg()">
+                                <div>
+                                    <i class="fa-solid fa-trash-can"></i>
+                                    <span>Cancella messaggio</span>
+                                </div>
+                            </div>
+
                         </li>
                     </ul> 
                 </main>

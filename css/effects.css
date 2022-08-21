@@ -28,3 +28,12 @@ i:not(.fa-paper-plane, .fa-magnifying-glass):active {
     0% { transform: translateZ(-1400px); opacity: 0; }
     100% { transform: translateZ(0); opacity: 1; }
 }
+
+.crypt-Message-text a:hover {
+    text-decoration: underline;
+    color: var(--primary-color);
+}
+
+.contact:hover {
+    background-color:#c4bfbfc1;
+}
