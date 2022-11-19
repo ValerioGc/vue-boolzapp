@@ -34,6 +34,6 @@
 ## *_Previews:_*
 
 ![Preview 1](/previews/bolzapp.gif)
-![Preview 2](/previews/bolzapp.png)
+![Preview 2](/previews/bolzapp-humb.png)
 
 
