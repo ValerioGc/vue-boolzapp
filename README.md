@@ -54,7 +54,7 @@
         <a href="https://vuejs.org/" target="_blank" rel="noreferrer">Font-Awersome</a>
       </td>
       <td>
-        <a href="https://moment.github.io/luxon/#/" target="_blank" rel="noreferrer">Luxon 3</a>|
+        <a href="https://moment.github.io/luxon/#/" target="_blank" rel="noreferrer">Luxon 3</a>
       </td>
     </tr>
   </tbody>
