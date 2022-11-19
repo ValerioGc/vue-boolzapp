@@ -1,6 +1,6 @@
 # **vue-boolzapp**    <img height="25" align="right" src="https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg">
 
-> _Replica Webapp messaggistica whatsapp_
+> _Reproduction of the Whatsapp Webapp_
 
 
 <br/>
