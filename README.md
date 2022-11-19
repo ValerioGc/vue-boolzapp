@@ -36,21 +36,4 @@
 ![Preview 1](/previews/bolzapp.gif)
 ![Preview 2](/previews/bolzapp.png)
 
---------
 
-
-<details align="center">  
-  <summary><strong><ins> View Full size previews :arrow_heading_down: </summary></strong></ins>
-  
-  <br/>
-
-  <img src="/previews/preview-bolzapp.png" alt="preview1" /> 
-  <img src="/previews/preview-bolzapp2.png" alt="preview2" /> 
-  <img src="/previews/preview-bolzapp3.png" alt="preview3" /> 
-  <img src="/previews/preview-bolzapp4.png" alt="preview4" />  
-  <img src="/previews/preview-bolzapp5.png" alt="preview5" /> 
-  <img src="/previews/preview-bolzapp6.png" alt="preview6" /> 
-
-</details>
-
---------
