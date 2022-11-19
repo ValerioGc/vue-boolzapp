@@ -33,7 +33,12 @@
 
 ## *_Previews:_*
 
-![Preview 1](/previews/bolzapp.gif)
-![Preview 2](/previews/bolzapp-thumb.png)
+<div align="center">
+  <img align="center" src="/previews/bolzapp.gif" alt="Gif bolzapp" />
+  
+  <br/>
+  
+  <img align="center" src="/previews/bolzapp-thumb.png" alt="Thumbnails bolzapp" />
+ <div>
 
 
